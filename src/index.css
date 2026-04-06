@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-[#E4E3E0] text-[#141414];
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    padding: 0 !important;
+  }
+
+  .print-container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .page-break {
+    break-before: page;
+  }
+
+  /* Prevent sections and tables from breaking across pages */
+  .scouting-report-page {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    min-height: auto; /* Allow content to dictate height but avoid breaks */
+    padding: 1cm;
+    box-sizing: border-box;
+  }
+
+  table, tr, td, th, .bg-white {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
